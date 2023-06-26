@@ -47,7 +47,4 @@ export async function POST(request: NextRequest) {
     console.error(error);
     return NextResponse.json({ error, success: false })
   }
-
-  return NextResponse.json({ seila: 'aff' })
-
 }

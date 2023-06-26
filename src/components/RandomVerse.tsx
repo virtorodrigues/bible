@@ -49,7 +49,7 @@ export function RandomVerse() {
   }
 
   async function sendEmail() {
-    const informationsRequests = await fetch('http://localhost:3000/api/send-email',{
+    const informationsRequests = await fetch(`${process.env.NEXT_PUBLIC_URL}api/send-email`,{
       method: 'POST',
       body: JSON.stringify({
         html: getHTMLToEmail(),
