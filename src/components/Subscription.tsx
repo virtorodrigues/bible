@@ -25,6 +25,7 @@ export function Subscription() {
       const docRef = await addDoc(collection(db, "users"), {
         name,
         email,
+        emailVerification: false
       });
 
       console.log("Document written with ID: ", docRef.id);

@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       refreshToken: process.env.CLIENT_REFRESH_TOKEN,
       accessToken
     }
-  });
+  } as any);
 
   try {
     // Definir informações do e-mail
