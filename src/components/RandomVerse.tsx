@@ -2,6 +2,7 @@
 
 import { data } from "autoprefixer"
 import { useEffect, useState } from "react"
+import { Subscription } from "./Subscription"
 
 interface DataInterface {
   book: {
@@ -36,21 +37,47 @@ export function RandomVerse() {
 
     const data = await bible.json()
 
-    const informationsRequests = await fetch('https://www.abibliadigital.com.br/api/requests/amount/day', {
-      headers:{
-        Authorization: `Bearer ${TOKEN}`
-      }
-    })
-    const informationsRequestsData = await informationsRequests.json()
-    console.log(informationsRequestsData)
+    // const informationsRequests = await fetch('https://www.abibliadigital.com.br/api/requests/amount/day', {
+    //   headers:{
+    //     Authorization: `Bearer ${TOKEN}`
+    //   }
+    // })
+    // const informationsRequestsData = await informationsRequests.json()
+    // console.log(informationsRequestsData)
 
     setVerse(data)
   }
 
-  console.log('dasdas')
+  async function sendEmail() {
+    const informationsRequests = await fetch('http://localhost:3000/api/send-email',{
+      method: 'POST',
+      body: JSON.stringify({
+        html: getHTMLToEmail(),
+      })
+    })
+    const informationsRequestsData = await informationsRequests.json()
+    console.log(informationsRequestsData)
+  }
+
+  function getHTMLToEmail() {
+    return `<div>
+      <h3>
+        ${verse?.book?.name}
+      </h3>
+      <h3>
+        capítulo: ${verse?.chapter}
+      </h3>
+      <h3>
+        versículo: ${verse?.number}
+      </h3>
+      <h2 className='mt-5 first-letter:uppercase'>${verse?.text}</h2>
+    </div>`
+  }
+
 
   return (
     <>
+      <Subscription />
       {isLoading || !verse ? (
         <span>carregando...</span>
       ) : (
@@ -67,6 +94,7 @@ export function RandomVerse() {
       }
 
       <button disabled={isLoading || !verse} onClick={generateRamdonVerse} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Gerar nova</button>
+      <button onClick={sendEmail} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Enviar email</button>
 
     </>
   )
