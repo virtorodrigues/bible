@@ -48,14 +48,16 @@ export function Subscription() {
   return (
     <div className="flex justify-center items-center p-12 flex-col gap-10 bg-gradient-to-r from-sky-500 to-indigo-500">
       <h2>Cadastre seu E-mail para receber todos os dias um versículo da bíblia</h2>
-      <div className="w-full md:w-[1200px] flex flex-col md:flex-row gap-5 md:gap-10 mb-1 justify-center items-center">
-        <div className="flex flex-col md:flex-row gap-2 items-start md:items-center">
-          <span>Nome</span>
-          <input type="text" className="text-black px-3 py-1 border border-gray-400" value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div className="flex flex-col md:flex-row gap-2 items-start md:items-center">
-          <span>E-mail</span>
-          <input type="text" className="text-black py-1 px-3 border border-gray-400" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <div className="w-full md:w-[1200px] flex flex-col md:flex-row gap-8 md:gap-10 mb-1 justify-center items-start">
+        <div className="flex flex-col gap-5 md:flex-row w-full md:w-fit">
+          <div className="flex flex-col md:flex-row gap-2 items-start md:items-center w-full md:w-80">
+            <span>Nome</span>
+            <input type="text" className="text-black px-3 py-1 border border-gray-400 w-full md:w-80" value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div className="flex flex-col md:flex-row gap-2 items-start md:items-center w-full md:w-80">
+            <span>Email</span>
+            <input type="text" className="text-black py-1 px-3 border border-gray-400 w-full md:w-80" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
         </div>
 
         <button className="text-white bg-gradient-to-r from-sky-500 to-indigo-500 w-fit h-fit px-4 py-1 rounded hover:bg-gradient-to-l hover:from-sky-500 hover:to-indigo-500" onClick={registerUser}>Cadastrar</button>
