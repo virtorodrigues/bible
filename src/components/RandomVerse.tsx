@@ -1,6 +1,5 @@
 'use client'
 
-import { data } from "autoprefixer"
 import { useEffect, useState } from "react"
 import { Subscription } from "./Subscription"
 
@@ -22,7 +21,8 @@ export function RandomVerse() {
   }, [])
 
   async function generateRamdonVerse() {
-    const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlNhdCBKdW4gMjQgMjAyMyAxOTo0MDozMiBHTVQrMDAwMC42NDk3NDMwOTcyN2FlOTAwMjA0MDg4YTYiLCJpYXQiOjE2ODc2MzU2MzJ9.0hEiCwoBQHvhglSTxLPWSFIMRaTYhz4lWHEzeaO3BcI'
+
+    const TOKEN = process.env.NEXT_PUBLIC_TOKEN_BIBLE
 
     setIsLoading(true)
     setVerse(null)
@@ -36,6 +36,7 @@ export function RandomVerse() {
     setIsLoading(false)
 
     const data = await bible.json()
+   // console.log(data)
 
     // const informationsRequests = await fetch('https://www.abibliadigital.com.br/api/requests/amount/day', {
     //   headers:{
@@ -49,7 +50,7 @@ export function RandomVerse() {
   }
 
   async function sendEmail() {
-    const informationsRequests = await fetch(`${process.env.NEXT_PUBLIC_URL}api/send-email`,{
+    const informationsRequests = await fetch(`${process.env.NEXT_PUBLIC_URL}api/email/send`,{
       method: 'POST',
       body: JSON.stringify({
         html: getHTMLToEmail(),
@@ -74,27 +75,29 @@ export function RandomVerse() {
     </div>`
   }
 
-
   return (
     <>
       <Subscription />
+
       {isLoading || !verse ? (
         <span>carregando...</span>
       ) : (
-          <>
-            <div className='gap-2 flex'>
-              <span>{verse?.book?.name}</span>
-              <span>capítulo: {verse?.chapter}</span>
-              <span>versículo: {verse?.number}</span>
+          <div className="flex justify-center flex-col items-center bg-[url('../assets/religious-1.jpg')] py-10 p-5">
+            <div className="w-full md:w-[1200px]">
+              <h1 className="text-center text-xl mb-5">Palavra do dia</h1>
             </div>
-            <span className='mt-5 first-letter:uppercase'>{verse?.text}</span>
-          </>
-
+            <div className="pt-5 flex justify-center items-center w-[400px] flex-col ">
+              <span className='first-letter:uppercase'>{verse?.text}</span>
+              <div className='gap-2 flex flex-col pt-12'>
+                <span>{verse?.book?.name} {verse?.chapter}:{verse?.number}</span>
+              </div>
+            </div>
+          </div>
         )
       }
 
-      <button disabled={isLoading || !verse} onClick={generateRamdonVerse} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Gerar nova</button>
-      <button onClick={sendEmail} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Enviar email</button>
+      {/* <button disabled={isLoading || !verse} onClick={generateRamdonVerse} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Gerar nova</button>
+      <button onClick={sendEmail} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Enviar email</button> */}
 
     </>
   )

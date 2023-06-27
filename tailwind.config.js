@@ -12,6 +12,10 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      backgroundReligiousImage: {
+        'hero-pattern': "url('/src/assets/religious-1.jpg')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      }
     },
   },
   plugins: [],
