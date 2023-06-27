@@ -82,13 +82,13 @@ export function RandomVerse() {
       {isLoading || !verse ? (
         <span>carregando...</span>
       ) : (
-          <div className="flex justify-center flex-col items-center bg-[url('../assets/religious-1.jpg')] py-10 p-5">
+          <div className="flex justify-center flex-col items-center bg-[url('../assets/religious-1.jpg')] py-10">
             <div className="w-full md:w-[1200px]">
               <h1 className="text-center text-xl mb-5">Palavra do dia</h1>
             </div>
-            <div className="pt-5 flex justify-center items-center w-[400px] flex-col ">
+            <div className="pt-5 flex justify-center items-center w-[400px] flex-col px-5 text-center">
               <span className='first-letter:uppercase'>{verse?.text}</span>
-              <div className='gap-2 flex flex-col pt-12'>
+              <div className='gap-2 flex flex-col pt-8'>
                 <span>{verse?.book?.name} {verse?.chapter}:{verse?.number}</span>
               </div>
             </div>
