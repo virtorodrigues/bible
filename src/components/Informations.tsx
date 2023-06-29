@@ -46,7 +46,7 @@ export function Informations() {
   }
 
   return (
-    <div className="flex items-center p-5 pt-9 md:p-12 flex-col gap-10 bg-gradient-to-r from-amber-300 to-amber-500">
+    <div className="z-[9] flex items-center p-5 pt-9 md:p-12 flex-col gap-10 bg-gradient-to-r from-amber-300 to-amber-500">
       <h2 className="text-xl">Voce sabia...</h2>
       <div className="w-full md:w-[1200px] flex flex-col gap-10 mb-1">
         <p>

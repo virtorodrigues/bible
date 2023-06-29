@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -7,16 +9,27 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      textShadow: {
+        lg: '0px 0px 20px #FFF',
       },
-      backgroundReligiousImage: {
-        'hero-pattern': "url('/src/assets/religious-1.jpg')",
-        'footer-texture': "url('/img/footer-texture.png')",
+      boxShadow : {
+        lg: '5px 5px 50px 5px #fff'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+          'box-shadow': (value) => ({
+            boxShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+  ],
 }
