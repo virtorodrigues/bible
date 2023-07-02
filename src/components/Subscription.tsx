@@ -46,7 +46,7 @@ export function Subscription() {
   }
 
   return (
-    <div className="z-[9] flex justify-center items-center p-12 flex-col gap-10 bg-gradient-to-r from-sky-500 to-indigo-500">
+    <section id="subscription" className="z-[9] flex justify-center items-center p-12 flex-col gap-10 bg-gradient-to-r from-sky-500 to-indigo-500">
       <h2>Cadastre seu E-mail para receber todos os dias um versículo da bíblia</h2>
       <div className="w-full md:w-[1200px] flex flex-col md:flex-row gap-8 md:gap-10 mb-1 justify-center items-start">
         <div className="flex flex-col gap-5 md:flex-row w-full md:w-fit">
@@ -62,6 +62,6 @@ export function Subscription() {
 
         <button className="text-white bg-gradient-to-r from-sky-500 to-indigo-500 w-fit h-fit px-4 py-1 rounded hover:bg-gradient-to-l hover:from-sky-500 hover:to-indigo-500" onClick={registerUser}>Cadastrar</button>
       </div>
-    </div>
+    </section>
   )
 }
