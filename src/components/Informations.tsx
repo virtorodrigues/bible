@@ -46,63 +46,92 @@ export function Informations() {
   }
 
   return (
-    <div className="z-[9] flex items-center p-5 pt-9 md:p-12 flex-col gap-10 bg-gradient-to-r from-amber-300 to-amber-500">
-      <h2 className="text-xl">Voce sabia...</h2>
-      <div className="w-full md:w-[1200px] flex flex-col gap-10 mb-1">
-        <p>
-          O EFEITO DA BIBLIA NO CÉREBRO HUMANO
-        </p>
+    <section id="bible-benefits" className="z-[9] ">
+      {/* //z-[9] flex items-center p-5 pt-9 md:p-12 flex-col gap-10 bg-gradient-to-r from-amber-300 to-amber-500"> */}
+      {/* <h2 className="text-xl">Voce sabia...</h2> */}
+      {/* <div className="w-full md:w-[1200px] flex flex-col gap-10 mb-1"> */}
+      <div className="pb-56 flex gap-10 flex-col text-white min-h-screen w-full bg-[url('../assets/bible-green1.png')] bg-no-repeat bg-fixed bg-cover bg-center shadow-lg overflow-hidden items-center">
 
-        <p>
-          Um estudo foi feito recentemente pelo centro de engajamento Bíblico em que eles estudaram 40.000 pessoas nos Estados Unidos de 8 a 80 anos de idade. Eles apenas queriam ver como nós estamos interagindo com as escrituras.
-        </p>
+        <div className="flex gap-10 flex-col mt-4 md:mt-10 justify-center items-center max-w-3xl">
 
-        <p>
-          E eles descobriram uma coisa que acabou se tornando a principal descoberta do estudo em si. Eles não estavam procurando por isso e se tornou o ponto principal do estudo. Quando nós lemos a Bíblia 1x por semana, e isso poderia ser o culto de domingo, quando o pastor diz: “Abra sua Bíblia” e nós ouvimos a mensagem.
-        </p>
-        <p>
-          1 x por semana mostrou um efeito quase insignificante em algumas áreas chave da sua vida. Vou explicar melhor daqui a pouco.
-        </p>
-        <p>
-          2 x por semana efeito quase insignificante. Agora =, ao lermos 3 x por semana houve um sinal diferente no mapa, como se fosse um batimento cardíaco. Algo aconteceu, ainda que fosse como um batimento.
-        </p>
-        <p>
-          Mas a profunda descoberta é essa: quando lemos a Bíblia 4 x por semana o efeito sobe de forma incrível. O esperado seria que fosse 1, 2… que houvesse um aumento gradual do efeito e impacto na sua vida. Mas foi literalmente 1,2,3…4! algo muda radicalmente!
-        </p>
-        <p>
-          O sentimento de solidão cai 30%. Isso lendo a Bíblica 4 x por semana.
-        </p>
-        <p>
-          Problemas com raiva caem 32%.
-        </p>
-        <p>
-          Amargura em relacionamentos, casamento, relacionamento com seus filhos cai 40%.
-        </p>
-        <p>
-          Alcoolismo cai 57%.
-        </p>
-        <p>
-          Sentimento de estagnação espiritual… se eu tivesse que escolher uma área, quando eu converso com as pessoas, na qual elas são realmente honestas é que elas se sentem estagnadas espiritualmente.
-        </p>
-        <p>
-          É só fazer a pergunta: “Quanto tempo você gasta na palavra?”
-        </p>
-        <p>
-          Lendo a bíblica 4 x por semana ou mais esse sentimento cai 60%.
-        </p>
-        <p>
-          Contato com pornografia cai 61%.
-        </p>
-        <p>
-          E se olharmos para hábitos positivos o comportamento da Fé aumenta200%, porque você confia na palavra de Deus. E há um aumento de 230% no discipulado.
-        </p>
-        <p>
-          Porque a palavra de Deus é viva e eficaz, e mais penetrante do que qualquer espada de dois gumes, e penetra até à divisão da alma e do espirito, e das juntas e medulas, e é apta para discernir os pensamentos e intenções do coração.
-        </p>
-        <p>
-          Hebreus 4: 12
-        </p>
+          <div className="flex gap-5 flex-col mt-4 md:mt-10 items-center">
+
+            <h3 className="text-xl md:text-3xl text-center leading-8 md:leading-10 p-3">Você sabe quantos dias por semana são necessários para receber benefícios lendo a bíblia?</h3>
+
+            <div className="flex gap-2 flex-col w-fit">
+              <div className="flex gap-2">
+                <span className="px-5 py-4 bg-gray-700 justify-center items-center flex">
+                  1x
+                </span>
+                <span className="px-5 py-4 bg-blue-500 w-full">
+                  mostrou um efeito quase insignificante
+                </span>
+              </div>
+
+              <div className="flex gap-2">
+                <span className="px-5 py-4 bg-gray-700 justify-center items-center flex">
+                  2x
+                </span>
+                <span className="px-5 py-4 bg-blue-500 w-full">
+                  mostrou um efeito quase insignificante
+                </span>
+              </div>
+
+              <div className="flex gap-2">
+                <span className="px-5 py-4 bg-gray-700 justify-center items-center flex">
+                  3x
+                </span>
+                <span className="px-5 py-4 bg-blue-500 w-full">
+                  houve um sinal diferente no mapa, como se fosse um batimento cardíaco
+                </span>
+              </div>
+
+              <div className="flex gap-2">
+                <span className="px-5 py-4 bg-gray-700 justify-center items-center flex">
+                  4x
+                </span>
+                <span className="px-5 py-4 bg-blue-500 w-full">
+                  o efeito sobe de forma incrível, algo muda radicalmente!
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-5 flex-col">
+            <h3 className="text-xl md:text-3xl text-center leading-8 md:leading-10 p-3">Quais os benefícios de ler a Bíblia 4x ou mais por semana?</h3>
+            <div className="bg-orange-700 px-5 py-4">
+              <span>O sentimento de solidão cai 30%.</span>
+            </div>
+            <div className="bg-yellow-700 px-5 py-4">
+              <span>Problemas com raiva caem 32%.</span>
+            </div>
+            <div className="bg-lime-700 px-5 py-4">
+              <span>Amargura em relacionamentos, casamento, relacionamento com seus filhos cai 40%.</span>
+            </div>
+            <div className="bg-teal-700 px-5 py-4">
+              <span>Alcoolismo cai 57%.</span>
+            </div>
+            <div className="bg-violet-700 px-5 py-4">
+              <span>Diminui cerca de 60% o sentimento de estagnação espiritual.</span>
+            </div>
+            <div className="bg-pink-700 px-5 py-4">
+              <span>Contato com pornografia cai 61%.</span>
+            </div>
+            <div className="bg-blue-700 px-5 py-4">
+              <span>E se olharmos para hábitos positivos o comportamento da Fé aumenta 200%.</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-sm p-4 flex flex-col gap-5 text-center max-w-xl leading-6">
+          <p>
+            Porque a palavra de Deus é viva e eficaz, e mais penetrante do que qualquer espada de dois gumes, e penetra até à divisão da alma e do espirito, e das juntas e medulas, e é apta para discernir os pensamentos e intenções do coração.
+          </p>
+          <p>
+            Hebreus 4: 12
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

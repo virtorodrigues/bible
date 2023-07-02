@@ -77,12 +77,10 @@ export function RandomVerse() {
 
   return (
     <>
-      <Subscription />
-
       {isLoading || !verse ? (
         <span>carregando...</span>
       ) : (
-          <div className="z-[9] flex justify-center flex-col items-center bg-[url('../assets/religious-1.jpg')] py-10">
+          <section id="random-verse" className="z-[9] flex justify-center flex-col items-center bg-[url('../assets/religious-1.jpg')] py-10">
             <div className="w-full md:w-[1200px]">
               <h1 className="text-center text-xl mb-5">Palavra do dia</h1>
             </div>
@@ -92,7 +90,7 @@ export function RandomVerse() {
                 <span>{verse?.book?.name} {verse?.chapter}:{verse?.number}</span>
               </div>
             </div>
-          </div>
+          </section>
         )
       }
 
