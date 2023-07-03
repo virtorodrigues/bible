@@ -11,7 +11,7 @@ export function Hero() {
         <h1 className="text-center text-4xl md:text-7xl mt-[-200px] text-shadow-lg">Leia mais a biblia</h1>
         <Subscription />
 
-        <div className='mt-48 flex gap-4'>
+        <div className='mt-[20%] flex gap-4'>
           <Link
             className="text-xs bg-[#624669] text-white px-4 py-2 rounded duration-200 hover:box-shadow-lg cursor-pointer box-shadow-sm flex flex-row justify-center items-center gap-2"
             to={'random-verse'}
@@ -20,7 +20,7 @@ export function Hero() {
             duration={500}
           >
             <Eye />
-            Versiculo de hoje
+            <span className='whitespace-nowrap'>Versiculo de hoje</span>
           </Link>
           <Link
             className="text-xs bg-[#624669] text-white px-4 py-2 rounded duration-200 hover:box-shadow-lg cursor-pointer box-shadow-sm flex flex-row justify-center items-center gap-2"
