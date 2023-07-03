@@ -20,7 +20,7 @@ export function Subscription() {
   const [email, setEmail] = useState('')
 
   async function registerUser() {
-    const informationsRequests = await fetch(`${process.env.NEXT_PUBLIC_URL}api/email/create-user`,{
+    await fetch(`${process.env.NEXT_PUBLIC_URL}api/email/create-user`,{
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -29,8 +29,8 @@ export function Subscription() {
       })
     })
 
-    const informationsRequestsData = await informationsRequests.json()
-    console.log(informationsRequestsData)
+    //await informationsRequests.json()
+    setEmail("")
   }
 
   function getHTMLToEmail({ email }: { email: string }) {
@@ -67,9 +67,9 @@ export function Subscription() {
   return (
     <div className="flex justify-center items-center flex-col gap-10">
       <h2 className="text-sm">Cadastre seu E-mail para receber todos os dias um versículo da bíblia</h2>
-      <div className="h-10 md:h-12 w-full md:w-[1200px] flex flex-row md:flex-row gap-4 mb-1 justify-center items-start">
-        <input type="text" placeholder="E-mail" className="rounded h-full text-black px-3 border border-gray-400 md:w-80" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <button className="h-full bg-white text-gray-700 px-4 md:px-5 rounded duration-200 hover:box-shadow-lg cursor-pointer" onClick={registerUser}>Cadastrar</button>
+      <div className="h-10 md:h-10 w-full flex flex-row md:flex-row gap-4 mb-1 justify-center items-start">
+        <input type="text" placeholder="E-mail" className="text-sm rounded h-full text-black px-3 border border-gray-400 w-full" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <button className="text-sm h-full bg-white text-gray-700 px-4 md:px-5 rounded duration-200 hover:box-shadow-lg cursor-pointer" onClick={registerUser}>Cadastrar</button>
       </div>
     </div>
   )

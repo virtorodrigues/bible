@@ -10,10 +10,11 @@ module.exports = {
   theme: {
     extend: {
       textShadow: {
-        lg: '0px 0px 20px #FFF',
+        lg: '0px 0px 8px #FFF',
+        sm: '0px 0px 10px #81608a'
       },
       boxShadow : {
-        lg: '5px 5px 50px 5px #fff'
+        lg: '5px 5px 50px 5px #fff',
       }
     },
   },
