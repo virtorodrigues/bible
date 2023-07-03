@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import { Subscription } from "./Subscription"
+import { useEffect, useState } from 'react'
 
 interface DataInterface {
   book: {
@@ -21,22 +20,24 @@ export function RandomVerse() {
   }, [])
 
   async function generateRamdonVerse() {
-
     const TOKEN = process.env.NEXT_PUBLIC_TOKEN_BIBLE
 
     setIsLoading(true)
     setVerse(null)
 
-    const bible = await fetch('https://www.abibliadigital.com.br/api/verses/nvi/random', {
-      headers:{
-        Authorization: `Bearer ${TOKEN}`
-      }
-    })
+    const bible = await fetch(
+      'https://www.abibliadigital.com.br/api/verses/nvi/random',
+      {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+        },
+      },
+    )
 
     setIsLoading(false)
 
     const data = await bible.json()
-   // console.log(data)
+    // console.log(data)
 
     // const informationsRequests = await fetch('https://www.abibliadigital.com.br/api/requests/amount/day', {
     //   headers:{
@@ -49,58 +50,63 @@ export function RandomVerse() {
     setVerse(data)
   }
 
-  async function sendEmail() {
-    const informationsRequests = await fetch(`${process.env.NEXT_PUBLIC_URL}api/email/send`,{
-      method: 'POST',
-      body: JSON.stringify({
-        html: getHTMLToEmail(),
-      })
-    })
-    const informationsRequestsData = await informationsRequests.json()
-    console.log(informationsRequestsData)
-  }
+  // async function sendEmail() {
+  //   const informationsRequests = await fetch(
+  //     `${process.env.NEXT_PUBLIC_URL}api/email/send`,
+  //     {
+  //       method: 'POST',
+  //       body: JSON.stringify({
+  //         html: getHTMLToEmail(),
+  //       }),
+  //     },
+  //   )
+  //   const informationsRequestsData = await informationsRequests.json()
+  //   console.log(informationsRequestsData)
+  // }
 
-  function getHTMLToEmail() {
-    return `<div>
-      <h3>
-        ${verse?.book?.name}
-      </h3>
-      <h3>
-        capítulo: ${verse?.chapter}
-      </h3>
-      <h3>
-        versículo: ${verse?.number}
-      </h3>
-      <h2 className='mt-5 first-letter:uppercase'>${verse?.text}</h2>
-    </div>`
-  }
+  // function getHTMLToEmail() {
+  //   return `<div>
+  //     <h3>
+  //       ${verse?.book?.name}
+  //     </h3>
+  //     <h3>
+  //       capítulo: ${verse?.chapter}
+  //     </h3>
+  //     <h3>
+  //       versículo: ${verse?.number}
+  //     </h3>
+  //     <h2 className='mt-5 first-letter:uppercase'>${verse?.text}</h2>
+  //   </div>`
+  // }
 
   return (
     <>
       {isLoading || !verse ? (
         <span>carregando...</span>
       ) : (
-          <section id="random-verse" className="z-[9] flex justify-center flex-col items-center bg-[url('../assets/religious-1.jpg')] py-10">
-            <div className="w-full md:w-[1200px]">
-              <h1 className="text-center text-2xl mb-5">Palavra do dia</h1>
+        <section
+          id="random-verse"
+          className="z-[9] flex flex-col items-center justify-center bg-[url('../assets/religious-1.jpg')] py-10"
+        >
+          <div className="w-full md:w-[1200px]">
+            <h1 className="mb-5 text-center text-2xl">Palavra do dia</h1>
+          </div>
+          <div className="flex w-full flex-col items-center justify-center px-5 pt-5 text-center md:w-[400px]">
+            <span className="first-letter:uppercase">{verse?.text}</span>
+            <div className="flex flex-col gap-2 pt-8">
+              <span>
+                {verse?.book?.name} {verse?.chapter}:{verse?.number}
+              </span>
             </div>
-            <div className="pt-5 flex justify-center items-center w-full md:w-[400px] flex-col px-5 text-center">
-              <span className='first-letter:uppercase'>{verse?.text}</span>
-              <div className='gap-2 flex flex-col pt-8'>
-                <span>{verse?.book?.name} {verse?.chapter}:{verse?.number}</span>
-              </div>
-            </div>
-          </section>
-        )
-      }
+          </div>
+        </section>
+      )}
 
       {/* <button disabled={isLoading || !verse} onClick={generateRamdonVerse} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Gerar nova</button>
       <button onClick={sendEmail} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Enviar email</button> */}
-
     </>
   )
 }
-
 
 /*
 
@@ -120,7 +126,7 @@ export function RandomVerse() {
   const createUSerData = await createUser.json()
   console.log(createUSerData)
   */
-  /*const token = await fetch('https://www.abibliadigital.com.br/api/users/token', {
+/* const token = await fetch('https://www.abibliadigital.com.br/api/users/token', {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'

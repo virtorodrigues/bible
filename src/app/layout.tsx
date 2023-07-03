@@ -1,11 +1,11 @@
+import React from 'react'
 import './globals.css'
-import { Inter } from 'next/font/google'
 import { Capriola } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 const capriola = Capriola({
   subsets: ['latin'],
-  weight: "400"
+  weight: '400',
 })
 
 export const metadata = {
