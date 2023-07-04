@@ -45,16 +45,19 @@ export async function POST(request: NextRequest) {
 
     // Configurar o transporte de e-mail
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: 'Gmail',
       auth: {
         type: 'OAuth2',
         user: process.env.CLIENT_USER_EMAIL,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.CLIENT_REFRESH_TOKEN,
         accessToken,
+        refreshToken: process.env.CLIENT_REFRESH_TOKEN,
+        expires: 1484314697598,
       },
     } as any)
+
+    // console.log(accessToken)
 
     try {
       // Definir informações do e-mail
