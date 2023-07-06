@@ -1,9 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 export function Subscription() {
   const [email, setEmail] = useState('')
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
 
   async function registerUser() {
     if (email.length > 3) {
@@ -42,21 +50,24 @@ export function Subscription() {
       <h2 className="text-sm">
         Cadastre seu E-mail para receber todos os dias um versículo da bíblia
       </h2>
-      <div className="mb-1 flex h-10 w-full flex-row items-start justify-center gap-4 md:h-10 md:flex-row">
+      <form
+        onSubmit={handleSubmit(registerUser)}
+        className="mb-1 flex h-10 w-full flex-row items-start justify-center gap-4 md:h-10 md:flex-row"
+      >
         <input
           type="text"
           placeholder="E-mail"
           className="h-full w-full rounded border border-gray-400 px-3 text-sm text-black"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          {...register('email')}
         />
         <button
+          type="submit"
           className="h-full cursor-pointer rounded bg-white px-4 text-sm text-gray-700 duration-200 hover:box-shadow-lg md:px-5"
-          onClick={registerUser}
         >
           Cadastrar
         </button>
-      </div>
+      </form>
     </div>
   )
 }
