@@ -45,29 +45,11 @@ export function RandomVerse() {
     const informationsRequests = await fetch(
       `${process.env.NEXT_PUBLIC_URL}api/email/send`,
       {
-        method: 'POST',
-        body: JSON.stringify({
-          html: getHTMLToEmail(),
-        }),
+        method: 'GET',
       },
     )
     const informationsRequestsData = await informationsRequests.json()
     console.log(informationsRequestsData)
-  }
-
-  function getHTMLToEmail() {
-    return `<div>
-      <h3>
-        ${verse?.book?.name}
-      </h3>
-      <h3>
-        capítulo: ${verse?.chapter}
-      </h3>
-      <h3>
-        versículo: ${verse?.number}
-      </h3>
-      <h2 className='mt-5 first-letter:uppercase'>${verse?.text}</h2>
-    </div>`
   }
 
   return (

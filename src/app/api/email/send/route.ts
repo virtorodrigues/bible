@@ -12,7 +12,7 @@ OAuth2Client.setCredentials({
   refresh_token: process.env.CLIENT_REFRESH_TOKEN,
 })
 
-export async function POST(request: NextRequest) {
+export async function GET(request: NextRequest) {
   // const { html } = await request.json()
 
   const q = query(collection(db, 'users'))
