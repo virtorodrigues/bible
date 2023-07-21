@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       const mailOptions = {
         from: 'reactzeiro@gmail.com',
         to: email,
-        subject: 'Sua pequena dose diaria de DEUS',
+        subject: 'Confirmação do e-mail',
         text: 'Conteúdo do e-mail',
         html, // html body
       }

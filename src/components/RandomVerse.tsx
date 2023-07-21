@@ -37,47 +37,38 @@ export function RandomVerse() {
     setIsLoading(false)
 
     const data = await bible.json()
-    // console.log(data)
-
-    // const informationsRequests = await fetch('https://www.abibliadigital.com.br/api/requests/amount/day', {
-    //   headers:{
-    //     Authorization: `Bearer ${TOKEN}`
-    //   }
-    // })
-    // const informationsRequestsData = await informationsRequests.json()
-    // console.log(informationsRequestsData)
 
     setVerse(data)
   }
 
-  // async function sendEmail() {
-  //   const informationsRequests = await fetch(
-  //     `${process.env.NEXT_PUBLIC_URL}api/email/send`,
-  //     {
-  //       method: 'POST',
-  //       body: JSON.stringify({
-  //         html: getHTMLToEmail(),
-  //       }),
-  //     },
-  //   )
-  //   const informationsRequestsData = await informationsRequests.json()
-  //   console.log(informationsRequestsData)
-  // }
+  async function sendEmail() {
+    const informationsRequests = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}api/email/send`,
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          html: getHTMLToEmail(),
+        }),
+      },
+    )
+    const informationsRequestsData = await informationsRequests.json()
+    console.log(informationsRequestsData)
+  }
 
-  // function getHTMLToEmail() {
-  //   return `<div>
-  //     <h3>
-  //       ${verse?.book?.name}
-  //     </h3>
-  //     <h3>
-  //       capítulo: ${verse?.chapter}
-  //     </h3>
-  //     <h3>
-  //       versículo: ${verse?.number}
-  //     </h3>
-  //     <h2 className='mt-5 first-letter:uppercase'>${verse?.text}</h2>
-  //   </div>`
-  // }
+  function getHTMLToEmail() {
+    return `<div>
+      <h3>
+        ${verse?.book?.name}
+      </h3>
+      <h3>
+        capítulo: ${verse?.chapter}
+      </h3>
+      <h3>
+        versículo: ${verse?.number}
+      </h3>
+      <h2 className='mt-5 first-letter:uppercase'>${verse?.text}</h2>
+    </div>`
+  }
 
   return (
     <>
@@ -102,8 +93,19 @@ export function RandomVerse() {
         </section>
       )}
 
-      {/* <button disabled={isLoading || !verse} onClick={generateRamdonVerse} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Gerar nova</button>
-      <button onClick={sendEmail} className='w-fit mt-10 bg-gray-600 px-3 py-1 rounded hover:bg-gray-700'>Enviar email</button> */}
+      <button
+        disabled={isLoading || !verse}
+        onClick={generateRamdonVerse}
+        className="mt-10 w-fit rounded bg-gray-600 px-3 py-1 hover:bg-gray-700"
+      >
+        Gerar nova
+      </button>
+      <button
+        onClick={sendEmail}
+        className="mt-10 w-fit rounded bg-gray-600 px-3 py-1 hover:bg-gray-700"
+      >
+        Enviar email
+      </button>
     </>
   )
 }
