@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
   })
 
   if (emails.length > 0) {
-    scheduleJob('30 16 * * *', () => senderEmail(emails))
+    senderEmail(emails)
   }
   return NextResponse.json({ success: false })
 }
