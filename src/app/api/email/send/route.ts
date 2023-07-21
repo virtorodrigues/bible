@@ -3,7 +3,6 @@ import { google } from 'googleapis'
 import { NextRequest, NextResponse } from 'next/server'
 import { collection, getDocs, query } from 'firebase/firestore'
 import { db } from '@/configFirebase'
-import { scheduleJob } from 'node-schedule'
 
 const OAuth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
