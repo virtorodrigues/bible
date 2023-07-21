@@ -12,42 +12,6 @@ OAuth2Client.setCredentials({
   refresh_token: process.env.CLIENT_REFRESH_TOKEN,
 })
 
-async function senderEmail(emails: string[]) {
-  const accessToken = OAuth2Client.getAccessToken()
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      type: 'OAuth2',
-      user: process.env.CLIENT_USER_EMAIL,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.CLIENT_REFRESH_TOKEN,
-      accessToken,
-    },
-  } as any)
-
-  const html = await getHTMLToEmail()
-  console.log(html)
-  try {
-    // Definir informações do e-mail
-    const mailOptions = {
-      from: 'reactzeiro@gmail.com',
-      to: emails,
-      subject: 'Sua pequena dose diaria de DEUS',
-      text: 'Conteúdo do e-mail',
-      html, // html body
-    }
-
-    // Enviar o e-mail
-    const info = await transporter.sendMail(mailOptions)
-    return NextResponse.json({ content: info.response, success: true })
-  } catch (error) {
-    console.error(error)
-    return NextResponse.json({ error, success: false })
-  }
-}
-
 export async function POST(request: NextRequest) {
   // const { html } = await request.json()
 
@@ -65,7 +29,38 @@ export async function POST(request: NextRequest) {
   })
 
   if (emails.length > 0) {
-    senderEmail(emails)
+    const accessToken = OAuth2Client.getAccessToken()
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: process.env.CLIENT_USER_EMAIL,
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.CLIENT_REFRESH_TOKEN,
+        accessToken,
+      },
+    } as any)
+
+    const html = await getHTMLToEmail()
+    try {
+      // Definir informações do e-mail
+      const mailOptions = {
+        from: 'reactzeiro@gmail.com',
+        to: emails,
+        subject: 'Sua pequena dose diaria de DEUS',
+        text: 'Conteúdo do e-mail',
+        html, // html body
+      }
+
+      // Enviar o e-mail
+      const info = await transporter.sendMail(mailOptions)
+      return NextResponse.json({ content: info.response, success: true })
+    } catch (error) {
+      console.error(error)
+      return NextResponse.json({ error, success: false })
+    }
   }
   return NextResponse.json({ success: false })
 }
