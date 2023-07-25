@@ -53,7 +53,6 @@ export function Subscription() {
     }
     setOpen(true)
     reset()
-    console.log(information)
   }
 
   function getHTMLToEmail({ email }: { email: string }) {
@@ -89,7 +88,7 @@ export function Subscription() {
           <button
             disabled={isSubmitting}
             type="submit"
-            className="h-full cursor-pointer rounded bg-white px-4 text-sm text-gray-700 duration-200 hover:box-shadow-lg disabled:cursor-not-allowed disabled:opacity-60 md:px-5"
+            className="enable:hover:box-shadow-lg h-full cursor-pointer rounded bg-white px-4 text-sm text-gray-700 duration-200 disabled:cursor-not-allowed disabled:opacity-60 md:px-5"
           >
             Cadastrar
           </button>
@@ -108,15 +107,6 @@ export function Subscription() {
           <Toast.Title className="mb-[5px] text-[15px] font-medium text-black [grid-area:_title]">
             {textToast}
           </Toast.Title>
-          {/* <Toast.Description asChild>
-            <div className="text-black">sadas</div>
-            {/* <time
-              className="text-slate11 m-0 text-[13px] leading-[1.3] [grid-area:_description]"
-              dateTime={eventDateRef.current.toISOString()}
-            > */}
-          {/* {prettyDate(eventDateRef.current)} */}
-          {/* </time> */}
-          {/* </Toast.Description> */}
         </Toast.Root>
         <Toast.Viewport className="fixed right-0 m-0 flex w-[390px] max-w-[100vw] list-none flex-col gap-[10px] p-[var(--viewport-padding)] outline-none [--viewport-padding:_25px]" />
       </Toast.Provider>

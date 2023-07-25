@@ -3,7 +3,7 @@
 export function InformationsFromBible() {
   return (
     <section id="bible-benefits" className="z-[9]">
-      <div className="flex min-h-screen w-full flex-col items-center gap-10 overflow-hidden bg-[url('../assets/image2.png')] bg-cover bg-fixed bg-center bg-no-repeat pb-28 text-white shadow-lg">
+      <div className="flex min-h-screen w-full flex-col items-center justify-center gap-10 overflow-hidden bg-[url('../assets/image2.png')] bg-cover bg-fixed bg-right bg-no-repeat pb-28 text-white shadow-lg">
         <div className="mt-4 flex max-w-3xl flex-col items-center justify-center gap-10 md:mt-10">
           <div className="mt-4 flex flex-col items-center gap-5 md:mt-10">
             <h3 className="p-3 text-center text-xl leading-8 md:text-3xl md:leading-10">
@@ -11,40 +11,40 @@ export function InformationsFromBible() {
               benefícios lendo a bíblia?
             </h3>
 
-            <div className="flex w-fit flex-col gap-2">
-              <div className="flex gap-2">
-                <span className="flex items-center justify-center bg-[#aa956e] px-5 py-4">
+            <div className="grid gap-2">
+              <div className="grid grid-cols-12 gap-2">
+                <span className="col-span-2 grid items-center bg-[#aa956e] px-5 py-4 md:col-span-1">
                   1x
                 </span>
-                <span className="w-full bg-[#624669] px-5 py-4">
+                <span className="col-span-10 grid bg-[#624669] px-5 py-4 md:col-span-11">
                   mostrou um efeito quase insignificante
                 </span>
               </div>
 
-              <div className="flex gap-2">
-                <span className="flex items-center justify-center bg-[#aa956e] px-5 py-4">
+              <div className="grid grid-cols-12 gap-2">
+                <span className="col-span-2 grid items-center bg-[#aa956e] px-5 py-4 md:col-span-1">
                   2x
                 </span>
-                <span className="w-full bg-[#624669] px-5 py-4">
+                <span className="col-span-10 grid bg-[#624669] px-5 py-4 md:col-span-11">
                   mostrou um efeito quase insignificante
                 </span>
               </div>
 
-              <div className="flex gap-2">
-                <span className="flex items-center justify-center bg-[#aa956e] px-5 py-4">
+              <div className="grid grid-cols-12 gap-2">
+                <span className="col-span-2 grid items-center bg-[#aa956e] px-5 py-4 md:col-span-1">
                   3x
                 </span>
-                <span className="w-full bg-[#624669] px-5 py-4">
+                <span className="col-span-10 grid bg-[#624669] px-5 py-4 md:col-span-11">
                   houve um sinal diferente no mapa, como se fosse um batimento
                   cardíaco
                 </span>
               </div>
 
-              <div className="flex gap-2">
-                <span className="flex items-center justify-center bg-[#aa956e] px-5 py-4">
+              <div className="grid grid-cols-12 gap-2">
+                <span className="col-span-2 grid items-center bg-[#aa956e] px-5 py-4 md:col-span-1">
                   4x
                 </span>
-                <span className="w-full bg-[#7d418b] px-5 py-4">
+                <span className="col-span-10 w-full items-center bg-[#624669] px-5 py-4 md:col-span-11">
                   o efeito sobe de forma incrível, algo muda radicalmente!
                 </span>
               </div>
@@ -86,7 +86,6 @@ export function InformationsFromBible() {
             </div>
           </div>
         </div>
-
         <div className="flex max-w-xl flex-col gap-5 p-4 text-center text-sm leading-6">
           <p>
             Porque a palavra de Deus é viva e eficaz, e mais penetrante do que

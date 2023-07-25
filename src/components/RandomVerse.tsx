@@ -41,29 +41,21 @@ export function RandomVerse() {
     setVerse(data)
   }
 
-  async function sendEmail() {
-    const informationsRequests = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}api/email/send`,
-      {
-        method: 'GET',
-      },
-    )
-    const informationsRequestsData = await informationsRequests.json()
-    console.log(informationsRequestsData)
-  }
-
   return (
     <>
-      {isLoading || !verse ? (
-        <span>carregando...</span>
-      ) : (
-        <section
-          id="random-verse"
-          className="z-[9] flex flex-col items-center justify-center bg-[url('../assets/religious-1.jpg')] py-10"
-        >
-          <div className="w-full md:w-[1200px]">
-            <h1 className="mb-5 text-center text-2xl">Palavra do dia</h1>
+      <section
+        id="random-verse"
+        className="z-[9] flex flex-col items-center justify-center bg-[url('../assets/religious-1.jpg')] py-10"
+      >
+        <div className="w-full md:w-[1200px]">
+          <h1 className="mb-5 text-center text-2xl">Palavra do dia</h1>
+        </div>
+
+        {isLoading || !verse ? (
+          <div className="flex h-20 items-center">
+            <span className="text-center">carregando...</span>
           </div>
+        ) : (
           <div className="flex w-full flex-col items-center justify-center px-5 pt-5 text-center md:w-[400px]">
             <span className="first-letter:uppercase">{verse?.text}</span>
             <div className="flex flex-col gap-2 pt-8">
@@ -72,64 +64,8 @@ export function RandomVerse() {
               </span>
             </div>
           </div>
-        </section>
-      )}
-
-      <button
-        disabled={isLoading || !verse}
-        onClick={generateRamdonVerse}
-        className="mt-10 w-fit rounded bg-gray-600 px-3 py-1 hover:bg-gray-700"
-      >
-        Gerar nova
-      </button>
-      <button
-        onClick={sendEmail}
-        className="mt-10 w-fit rounded bg-gray-600 px-3 py-1 hover:bg-gray-700"
-      >
-        Enviar email
-      </button>
+        )}
+      </section>
     </>
   )
 }
-
-/*
-
-    /*const createUser = await fetch('https://www.abibliadigital.com.br/api/users', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      "name": "vitor",
-      "email": "santos_vitao@hotmail.com",
-      "password": "123123123", // minimum size 6 digits
-      "notifications": true // receive update emails from www.abibliadigital.com.br
-    })
-  })
-  const createUSerData = await createUser.json()
-  console.log(createUSerData)
-  */
-/* const token = await fetch('https://www.abibliadigital.com.br/api/users/token', {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: 'PUT',
-    body: JSON.stringify({
-      "email": "santos_vitao@hotmail.com",
-      "password": "123123123",
-    })
-  })
-  const tokenData = await token.json()
-  console.log(tokenData.token)
-*/
-
-/* const userByEmail = await fetch('https://www.abibliadigital.com.br/api/users/santos_vitao@hotmail.com', {
-    headers:{
-      Authorization: `Bearer ${TOKEN}`
-    }
-  })
-  const data = await userByEmail.json()
-  console.log(data)
-*/

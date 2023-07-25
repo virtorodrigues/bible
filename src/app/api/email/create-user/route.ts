@@ -79,6 +79,6 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({
     success: false,
-    message: 'email is already registred!',
+    message: 'Erro! E-mail já cadastrado!',
   })
 }
