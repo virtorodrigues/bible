@@ -69,11 +69,11 @@ export function Subscription() {
     `
   }
 
-  async function sendVerse() {
-    await fetch(`${process.env.NEXT_PUBLIC_URL}api/email/send`, {
-      method: 'POST',
-    })
-  }
+  // async function sendVerse() {
+  //   await fetch(`${process.env.NEXT_PUBLIC_URL}api/email/send`, {
+  //     method: 'POST',
+  //   })
+  // }
 
   return (
     <div className="flex flex-col items-center justify-center gap-10">
