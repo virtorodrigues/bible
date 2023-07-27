@@ -1,5 +1,6 @@
 'use client'
 
+import { Loader2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 interface DataInterface {
@@ -53,7 +54,7 @@ export function RandomVerse() {
 
         {isLoading || !verse ? (
           <div className="flex h-20 items-center">
-            <span className="text-center">carregando...</span>
+            <Loader2 color="black" size={25} className="animate-spin" />
           </div>
         ) : (
           <div className="flex w-full flex-col items-center justify-center px-5 pt-5 text-center md:w-[400px]">

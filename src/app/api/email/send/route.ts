@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   querySnapshot.forEach((doc: any) => {
     const data = doc.data()
 
-    if (data.emailVerification) {
+    if (data.emailVerification && !data.unsubscribe) {
       emails.push(doc.data().email)
     }
   })
@@ -45,20 +45,17 @@ export async function POST(request: NextRequest) {
 
     const html = await getHTMLToEmail()
     try {
-      // Definir informações do e-mail
       const mailOptions = {
         from: 'reactzeiro@gmail.com',
         to: emails,
-        subject: 'Sua pequena dose diaria de DEUS',
+        subject: 'Sua pequena dose diaria da Bíblia',
         text: 'Conteúdo do e-mail',
-        html, // html body
+        html,
       }
 
-      // Enviar o e-mail
       const info = await transporter.sendMail(mailOptions)
       return NextResponse.json({ content: info.response, success: true })
     } catch (error) {
-      console.error(error)
       return NextResponse.json({ error, success: false })
     }
   }
@@ -82,6 +79,9 @@ async function generateRamdonVerse() {
 
 async function getHTMLToEmail() {
   const verse = (await generateRamdonVerse()) as any
+
+  const unsubscribeLink = `${process.env.NEXT_PUBLIC_URL}/unsubscribe`
+
   return `
     <div>
       <h3>
@@ -94,5 +94,6 @@ async function getHTMLToEmail() {
         versículo: ${verse?.number}
       </h3>
       <h2 className='mt-5 first-letter:uppercase'>${verse?.text}</h2>
+      <p>Para cancelar sua inscrição clique <a href='${unsubscribeLink}'>aqui! </a></p>
     </div>`
 }

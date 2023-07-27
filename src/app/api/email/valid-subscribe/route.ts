@@ -35,9 +35,11 @@ export async function GET(request: NextRequest) {
       console.error('Error adding document: ', e)
     }
     return NextResponse.redirect(
-      `${process.env.NEXT_PUBLIC_URL}/valid-email/${email}`,
+      `${process.env.NEXT_PUBLIC_URL}/valid-subscribe/true`,
     )
   }
 
-  return NextResponse.json({ user: {} })
+  return NextResponse.redirect(
+    `${process.env.NEXT_PUBLIC_URL}/valid-subscribe/false`,
+  )
 }
